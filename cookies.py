@@ -17,7 +17,7 @@ wait = WebDriverWait(driver, 10)
 username = wait.until(
     EC.presence_of_element_located((By.CSS_SELECTOR, 'input[autocomplete=username]'))
 )
-username.send_keys("dhamlet185@gmail.com")
+username.send_keys("example@email.com") # REPLACE WITH YOUR EMAIL
 
 login_button = wait.until(
     EC.presence_of_element_located((By.CSS_SELECTOR, '[role=button].r-13qz1uu'))
@@ -27,7 +27,7 @@ login_button.click()
 password = wait.until(
     EC.presence_of_element_located((By.CSS_SELECTOR, '[type=password]'))
 )
-password.send_keys("Edible12!")
+password.send_keys("ChangeMeLOL!") # REPLACE WITH YOUR PASSWORD
 
 login_button = wait.until(
     EC.presence_of_element_located((By.CSS_SELECTOR, '[data-testid*=Login_Button]'))
