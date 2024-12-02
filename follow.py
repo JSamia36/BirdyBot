@@ -25,7 +25,7 @@ with open('cookies.pkl', 'rb') as file:
 driver.refresh()
 time.sleep(1)
 
-driver.get('https://twitter.com/cryptocom/followers') # for following
+driver.get('https://twitter.com/cryptocom/followers') # CHANGE TO ACCOUNT YOU WANT TO TARGET
 time.sleep(1)
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
