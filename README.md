@@ -7,5 +7,7 @@ I haven't had a second to fully test from the start. I will make updates and rev
 
 Following that update file.txt to include tweets you'd like. You then have to modify cookies.py to include your username and password. Once cookies.py is ran once it ideally won't need to be ran again.
 
+You also will need chromedriver, this has to be placed in the same folder or you have to modify the path. That can be downloaded at https://googlechromelabs.github.io/chrome-for-testing/#stable
+
 ## Modifying
 It is open source so you can make any modifications to the timing and amount of stuff done. The schedule is in main.py but the delays should be at the start of each program. If you wish to run individual they should be setup to support that as well, meaning you can just run the tweet or retweet features. Make sure to also modify the files to traget the specific searches and accounts you want.
