@@ -24,7 +24,7 @@ with open('cookies.pkl', 'rb') as file:
 driver.refresh()
 time.sleep(3)
 
-driver.get('https://twitter.com/search?q=crypto&src=typed_query&f=live') # for liking
+driver.get('https://twitter.com/search?q=crypto&src=typed_query&f=live') # CHANGE CRYPTO TO SEARCH YOU WANT
 time.sleep(1)
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
