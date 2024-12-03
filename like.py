@@ -38,7 +38,7 @@ randSleep = random.randint(2,15)
 skipNum = random.choice(['on', 'off', 'on']) # if off skip tweet, if not like that tweet
 Num2Like = random.randint(1,7)
 
-for button in like_button[:Num2Like]: # Liking 3 tweets, adjust as desired
+for button in like_button[:3]: # Currently doesn't work will update later
     if skipNum == 'on':
         try:
             button.click()
