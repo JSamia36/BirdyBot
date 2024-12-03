@@ -5,12 +5,11 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Keys
-import pickle, time, os, random
+import pickle, time, os, random, pyperclip
 
-print("Taking a quick nap before tweeting")
-time.sleep((random.randint(60,720)))
-print("Rise and shine, preparing to tweet")
-driver_path = 'chromedriver.exe'  
+print("Tweeting will have to wait until after this nap")
+print("Rise and shine, tweeting time")
+driver_path = 'chromedriver'  
 service = ChromeService(executable_path=driver_path)
 driver = webdriver.Chrome(service=service)
 driver.get('https://twitter.com') 
@@ -42,13 +41,24 @@ print(chosen_lines)
 with open(filename, 'w') as output_file:
     output_file.writelines(line + "\n" for line in lines if line not in chosen_lines)
 
-post.send_keys(chosen_lines)
+tweet_box = 'div[aria-autocomplete="list"]'
+WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, tweet_box))
+)
+tBox = driver.find_element(By.CSS_SELECTOR, tweet_box)
+tBox.click()
+
+pyperclip.copy(random.choice)
+
+act = ActionChains(driver)
+act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
+
 
 # Post submit
-PostButton = wait.until(
+postButton = wait.until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "[data-testid='tweetButton']"))
-)
-PostButton.click()
+ )
+postButton.click()
 
-print("Tweets were tweeted")
+print("Tweeting went well!")
 time.sleep(5)
