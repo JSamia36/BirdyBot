@@ -7,7 +7,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Keys
 import pickle, time, os, random
 
+print("Taking a quick nap before tweeting")
 time.sleep((random.randint(60,720)))
+print("Rise and shine, preparing to tweet")
 driver_path = 'chromedriver.exe'  
 service = ChromeService(executable_path=driver_path)
 driver = webdriver.Chrome(service=service)
@@ -42,13 +44,11 @@ with open(filename, 'w') as output_file:
 
 post.send_keys(chosen_lines)
 
-# Image upload
-imageButton = wait.until(
+# Post submit
+PostButton = wait.until(
     EC.presence_of_element_located((By.CSS_SELECTOR, "[data-testid='tweetButton']"))
 )
-imageButton.click()
+PostButton.click()
 
-
-# ADD post button function
-
+print("Tweets were tweeted")
 time.sleep(5)
