@@ -6,8 +6,9 @@ file_path = "cookies.pkl"
 if os.path.exists(file_path):
 	print('Cookies already saved')
 else:
+	print("Let's grab those cookies now..")
 	subprocess.run(["python3", "cookies.py"])
-
+	print("Cookies saved!")
 
 def tweet():
 	subprocess.run(["python3", "tweet.py"])
@@ -30,6 +31,8 @@ schedule.every(2).to(3).hours.do(follow)
 start_time = datetime.time(6, 0)
 end_time = datetime.time(20, 0)
 current_time = datetime.datetime.now().time()
+
+print("Schedule created!")
 
 while True:
     if start_time <= current_time <= end_time:
