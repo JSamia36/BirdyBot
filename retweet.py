@@ -39,7 +39,7 @@ randSleep = random.randint(1,15)
 skipNum = random.choice(['on', 'off', 'on']) # if off skip tweet, if not retweet that tweet
 Num2Like = random.randint(0,3)
 
-for button in like_button[:Num2Like]:
+for button in like_button[:3]:
     if skipNum == 'on':
         try:
             button.click()
