@@ -22,10 +22,10 @@ def retweet():
 	subprocess.run(["python3", "retweet.py"])
 
 # Tweeting then sleeping for random time
-schedule.every(1).to(3).hour.do(tweet)
-schedule.every(2).hour.do(like)
-schedule.every(2).hour.do(retweet)
-schedule.every(2).to(3).hour.do(follow)
+schedule.every(1).to(3).hours.do(tweet)
+schedule.every(2).hours.do(like)
+schedule.every(2).hours.do(retweet)
+schedule.every(2).to(3).hours.do(follow)
 
 start_time = datetime.time(6, 0)
 end_time = datetime.time(20, 0)
