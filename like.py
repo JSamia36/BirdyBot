@@ -1,4 +1,4 @@
-from selenium import webdriver
+likfrom selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -8,7 +8,9 @@ from selenium.webdriver import Keys
 from selenium.webdriver import ActionChains
 import pickle, time, os, random
 
+print("going to send some likes after this nap")
 time.sleep((random.randint(2100,2820)))
+print("nap finished, sending those likes now")
 driver_path = 'chromedriver.exe'  
 service = ChromeService(executable_path=driver_path)
 driver = webdriver.Chrome(service=service)
@@ -46,4 +48,4 @@ for button in like_button[:Num2Like]: # Liking 3 tweets, adjust as desired
     else:
         continue
 
-print('Success')
+print('Sent the likes :)')
