@@ -39,7 +39,7 @@ randSleep = random.randint(1,17)
 skipNum = random.choice(['on', 'off', 'on']) # if off skip tweet, if not retweet that tweet
 Num2Follow = random.randint(1,27) # There is a 400 a day limit for non verified accounts
 
-for button in follow_button[:Num2Follow]: # Follow random amount
+for button in follow_button[:22]: # Follow random amount
     try:
         button.click()
         time.sleep(randSleep)
