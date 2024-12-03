@@ -6,9 +6,10 @@ file_path = "cookies.pkl"
 if os.path.exists(file_path):
 	print('Cookies already saved')
 else:
-	print("Let's grab those cookies now..")
+	print("Preparing to grab those cookies..")
 	subprocess.run(["python3", "cookies.py"])
-	print("Cookies saved!")
+	print("Cookies are now stored")
+
 
 def tweet():
 	subprocess.run(["python3", "tweet.py"])
@@ -22,21 +23,19 @@ def follow():
 def retweet():
 	subprocess.run(["python3", "retweet.py"])
 
+
 # Tweeting then sleeping for random time
-schedule.every(1).to(3).hours.do(tweet)
-schedule.every(2).hours.do(like)
-schedule.every(2).hours.do(retweet)
-schedule.every(2).to(3).hours.do(follow)
+schedule.every(0).to(2).hours.do(tweet)
+schedule.every(30).minutes.do(like)
+schedule.every(30).minutes.do(retweet)
+schedule.every(0).to(2).hours.do(follow)
 
 start_time = datetime.time(6, 0)
 end_time = datetime.time(20, 0)
 current_time = datetime.datetime.now().time()
 
-print("Schedule created!")
+print("Created Schedule!")
 
 while True:
-    if start_time <= current_time <= end_time:
-        schedule.run_pending()
-        time.sleep(1)
-    else:
-        time.sleep(3600)
+    schedule.run_pending()
+    time.sleep(1)
