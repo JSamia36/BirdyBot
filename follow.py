@@ -9,7 +9,9 @@ from selenium.webdriver import Keys
 from selenium.webdriver import ActionChains
 import pickle, time, os, random
 
+print("Napping before following")
 time.sleep((random.randint(720,1440)))
+print("Awake and ready to rumble")
 driver_path = 'chromedriver.exe'  
 service = ChromeService(executable_path=driver_path)
 driver = webdriver.Chrome(service=service)
@@ -45,4 +47,4 @@ for button in follow_button[:Num2Follow]: # Follow random amount
         continue
     continue
 
-print(follow_button)
+print("Followed some new friends")
