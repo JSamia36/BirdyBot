@@ -9,7 +9,9 @@ from selenium.webdriver import Keys
 from selenium.webdriver import ActionChains
 import pickle, time, os, random
 
-time.sleep((random.randint(60,1800)))
+print("retweeting soon")
+time.sleep((random.randint(1440,2100)))
+print("finally going to retweet")
 driver_path = 'chromedriver.exe'  
 service = ChromeService(executable_path=driver_path)
 driver = webdriver.Chrome(service=service)
@@ -25,7 +27,7 @@ with open('cookies.pkl', 'rb') as file:
 driver.refresh()
 time.sleep(3)
 
-driver.get('https://twitter.com/search?q=crypto&src=typed_query&f=live') # for liking
+driver.get('https://twitter.com/search?q=crypto&src=typed_query') 
 time.sleep(1)
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -37,7 +39,7 @@ randSleep = random.randint(1,15)
 skipNum = random.choice(['on', 'off', 'on']) # if off skip tweet, if not retweet that tweet
 Num2Like = random.randint(0,3)
 
-for button in like_button[:Num2Like]: # Retweet 3 tweets, adjust as desired
+for button in like_button[:Num2Like]:
     if skipNum == 'on':
         try:
             button.click()
@@ -47,4 +49,4 @@ for button in like_button[:Num2Like]: # Retweet 3 tweets, adjust as desired
     else:
         continue
 
-print('Success')
+print('Retweet Success')
