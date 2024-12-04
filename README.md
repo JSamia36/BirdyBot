@@ -1,5 +1,5 @@
 # BirdyBot
-A python program to make your twitter account easier to run
+A python program to make your twitter account easier to run. This posts tweets for you, follows people, likes and retweets posts all on a schedule you set!
 
 ## Getting Started
 I haven't had a second to fully test from the start. I will make updates and revisions as needed based on that. Make sure to start with installing the neccessary files:
