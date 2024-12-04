@@ -37,5 +37,10 @@ current_time = datetime.datetime.now().time()
 print("Created Schedule!")
 
 while True:
+    if start_time <= current_time <= end_time:
+        schedule.run_pending()
+        time.sleep(1)
+    else:
+        time.sleep(3600)
     schedule.run_pending()
     time.sleep(1)
