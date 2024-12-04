@@ -3,9 +3,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver import Keys
-import pickle, time, os, random, pyperclip
+import pickle, time, random, pyperclip
+from selenium.webdriver import ActionChains
 
 print("Tweeting will have to wait until after this nap")
 print("Rise and shine, tweeting time")
