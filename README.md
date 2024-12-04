@@ -17,3 +17,6 @@ For example,
 
 ## Modifying
 It is open source so you can make any modifications to the timing and amount of stuff done. The schedule is in main.py but the delays should be at the start of each program. If you wish to run individual they should be setup to support that as well, meaning you can just run the tweet or retweet features. Make sure to also modify the files to traget the specific searches and accounts you want.
+
+## Coming Soon
+I'm hoping to make it more friendly by putting time presets and username:password all in one config file for the user to edit. I unforuntately doubt a GUI will be created anytime soon or ever though. Videos are also on my list to add and potentially replies to tweets. The main.py is currently pretty messed up with the scheduling so that is pretty high on things to get done. I would also like to add a feature to generate tweets likely using ChatGPT's API, that would be an optional only feature to use. 
