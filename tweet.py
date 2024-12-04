@@ -35,7 +35,7 @@ post = wait.until(
 )
 
 # ----- Choosing random thing to send -----
-with open(filename) as file:
+with open(filename, 'r', encoding='utf-8') as file:
     lines = file.read().splitlines()
 
 chosen_lines = random.choice(lines)
@@ -80,7 +80,7 @@ if '<' and '>' in chosen_lines:
     act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
 
 else:
-    pyperclip.copy(random.choice)
+    pyperclip.copy(chosen_lines)
     act = ActionChains(driver)
     act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
 
