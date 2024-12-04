@@ -4,12 +4,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Keys
-import pickle, time, random, pyperclip
+import pickle, time, random, pyperclip, re
 from selenium.webdriver import ActionChains
+from io import BytesIO
+import win32clipboard
+from PIL import Image
 
 print("Tweeting will have to wait until after this nap")
 print("Rise and shine, tweeting time")
-driver_path = 'chromedriver'  
+driver_path = 'chromedriver.exe'  
 service = ChromeService(executable_path=driver_path)
 driver = webdriver.Chrome(service=service)
 driver.get('https://twitter.com') 
@@ -48,10 +51,38 @@ WebDriverWait(driver, 10).until(
 tBox = driver.find_element(By.CSS_SELECTOR, tweet_box)
 tBox.click()
 
-pyperclip.copy(random.choice)
+def copy_image(clip_type, data):
+    win32clipboard.OpenClipboard()
+    win32clipboard.EmptyClipboard()
+    win32clipboard.SetClipboardData(clip_type, data)
+    win32clipboard.CloseClipboard()    
 
-act = ActionChains(driver)
-act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
+if '<' and '>' in chosen_lines:
+    remSym = re.search('<(.*)>', chosen_lines)
+    imagePath = (remSym.group(1))
+    s = chosen_lines
+    twt = re.sub('<.*?>', '', s)
+
+    image = Image.open(imagePath)
+
+    output = BytesIO()
+    image.convert("RGB").save(output, "BMP")
+    data = output.getvalue()[14:]
+    output.close()
+
+    copy_image(win32clipboard.CF_DIB, data)
+
+    act = ActionChains(driver)
+    act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
+
+    pyperclip.copy(twt)
+    act = ActionChains(driver)
+    act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
+
+else:
+    pyperclip.copy(random.choice)
+    act = ActionChains(driver)
+    act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
 
 
 # Post submit
@@ -61,4 +92,4 @@ postButton = wait.until(
 postButton.click()
 
 print("Tweeting went well!")
-time.sleep(5)
+time.sleep(20)
