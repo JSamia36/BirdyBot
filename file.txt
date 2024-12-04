@@ -1,3 +1,3 @@
-PUT TWEET #1 HERE
-Very good tweet 2 here
-super cool amazing 3rd tweet
+Example tweet with an image! <image.png>
+Tweet with emoji 😀
+You can also do a tweet with both emojis ✨and images <image.png>
