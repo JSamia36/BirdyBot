@@ -5,13 +5,15 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 import pickle, time, random, yaml
 
 with open('config.yaml') as configFile:
-    config = yaml.save_load(configFile)
+    config = yaml.safe_load(configFile)
 
 FollowMin = config['follow_timer']['follow_min']
 FollowMax = config['follow_timer']['follow_max']
 
 FCN = config['follow_amount']['follow_min']
 FCX = config['follow_amount']['follow_max']
+
+accountTGT = config['theme']['accountFollow']
 
 print("Napping before following")
 time.sleep((random.randint(FollowMin,FollowMax)))
@@ -31,7 +33,7 @@ with open('cookies.pkl', 'rb') as file:
 driver.refresh()
 time.sleep(1)
 
-driver.get('https://twitter.com/cryptocom/followers') # CHANGE TO ACCOUNT YOU WANT TO TARGET
+driver.get(f'https://twitter.com/{accountTGT}/followers') # for following
 time.sleep(1)
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
