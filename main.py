@@ -25,10 +25,10 @@ def retweet():
 
 
 # Tweeting then sleeping for random time
-schedule.every(0).to(2).hours.do(tweet)
+schedule.every(1).to(120).minutes.do(tweet) 
 schedule.every(30).minutes.do(like)
 schedule.every(30).minutes.do(retweet)
-schedule.every(0).to(2).hours.do(follow)
+schedule.every(30).to(120).minutes.do(follow)
 
 start_time = datetime.time(6, 0)
 end_time = datetime.time(20, 0)
