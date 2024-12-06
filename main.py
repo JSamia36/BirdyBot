@@ -42,5 +42,3 @@ while True:
         time.sleep(1)
     else:
         time.sleep(3600)
-    schedule.run_pending()
-    time.sleep(1)
