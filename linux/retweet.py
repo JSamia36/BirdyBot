@@ -1,16 +1,20 @@
-import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver import Keys
-from selenium.webdriver import ActionChains
-import pickle, time, os, random
+import pickle, time, yaml, random
+
+with open('config.yaml') as configFile:
+    config = yaml.save_load(configFile)
+
+RetweetMin = config['retweet_timer']['retweet_min']
+RetweetMax = config['retweet_timer']['retweet_max']
+
+RCN = config['retweet_amount']['retweet_min']
+RCX = config['retweet_amount']['retweet_max']
 
 print("retweeting soon")
-time.sleep((random.randint(1440,2100)))
+time.sleep((random.randint(RetweetMin,RetweetMax)))
 print("finally going to retweet")
 driver_path = 'chromedriver'  
 service = ChromeService(executable_path=driver_path)
@@ -37,7 +41,7 @@ like_button = driver.find_elements(By.CSS_SELECTOR, "[data-testid='retweet']")
 
 randSleep = random.randint(1,15)
 skipNum = random.choice(['on', 'off', 'on']) # if off skip tweet, if not retweet that tweet
-Num2Like = random.randint(0,3)
+Num2Like = random.randint(RCN,RCX)
 
 for button in like_button[:3]:
     if skipNum == 'on':
