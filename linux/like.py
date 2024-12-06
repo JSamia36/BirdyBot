@@ -11,7 +11,7 @@ import pickle, time, os, random
 print("going to send some likes after this nap")
 time.sleep((random.randint(2100,2820)))
 print("nap finished, sending those likes now")
-driver_path = 'chromedriver.exe'  
+driver_path = 'chromedriver'  
 service = ChromeService(executable_path=driver_path)
 driver = webdriver.Chrome(service=service)
 driver.get('https://twitter.com') 
