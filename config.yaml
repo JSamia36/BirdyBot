@@ -1,3 +1,29 @@
 login:
   username: john-doe
   password: SuperSecretPassword123
+
+# These values are in minutes
+follow_timer:
+  follow_min: 720
+  follow_max: 1440
+
+like_timer:
+  like_min: 2100
+  like_max: 2820
+
+retweet_timer:
+  retweet_min: 1440
+  retweet_max: 2100
+
+# Following amount now
+follow_amount:
+  follow_min: 2
+  follow_max: 30
+
+like_amount:
+  like_min: 1
+  like_max: 9
+
+retweet_amount:
+  retweet_min: 1
+  retweet_max: 3
