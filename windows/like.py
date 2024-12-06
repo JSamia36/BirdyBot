@@ -7,14 +7,14 @@ import pickle, time, yaml, random
 with open('config.yaml') as configFile:
     config = yaml.save_load(configFile)
 
-FollowMin = config['follow_timer']['follow_min']
-FollowMax = config['follow_timer']['follow_max']
+LikeMin = config['like_timer']['like_min']
+LikeMax = config['like_timer']['like_max']
 
-FCN = config['follow_amount']['follow_min']
-FCX = config['follow_amount']['follow_max']
+LCN = config['like_amount']['like_min']
+LCX = config['like_amount']['like_max']
 
 print("going to send some likes after this nap")
-time.sleep((random.randint(FollowMin,FollowMax)))
+time.sleep((random.randint(LikeMin,LikeMax)))
 print("nap finished, sending those likes now")
 driver_path = 'chromedriver.exe'  
 service = ChromeService(executable_path=driver_path)
@@ -41,7 +41,7 @@ like_button = driver.find_elements(By.CSS_SELECTOR, "[data-testid='like']")
 
 randSleep = random.randint(2,15)
 skipNum = random.choice(['on', 'off', 'on']) # if off skip tweet, if not like that tweet
-Num2Like = random.randint(FCN,FCX)
+Num2Like = random.randint(LCN,LCX)
 
 for button in like_button[:Num2Like]: 
     if skipNum == 'on':
