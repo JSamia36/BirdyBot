@@ -1,16 +1,20 @@
-import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver import Keys
-from selenium.webdriver import ActionChains
-import pickle, time, os, random
+import pickle, time, random, yaml
+
+with open('config.yaml') as configFile:
+    config = yaml.save_load(configFile)
+
+FollowMin = config['follow_timer']['follow_min']
+FollowMax = config['follow_timer']['follow_max']
+
+FCN = config['follow_amount']['follow_min']
+FCX = config['follow_amount']['follow_max']
 
 print("Napping before following")
-time.sleep((random.randint(720,1440)))
+time.sleep((random.randint(FollowMin,FollowMax)))
 print("Awake and ready to rumble")
 driver_path = 'chromedriver.exe'  
 service = ChromeService(executable_path=driver_path)
@@ -37,7 +41,7 @@ follow_button = driver.find_elements(By.CSS_SELECTOR, "button[data-testid$='foll
 
 randSleep = random.randint(1,17)
 skipNum = random.choice(['on', 'off', 'on']) # if off skip tweet, if not retweet that tweet
-Num2Follow = random.randint(1,27) # There is a 400 a day limit for non verified accounts
+Num2Follow = random.randint(FCN,FCX) # There is a 400 a day limit for non verified accounts
 
 for button in follow_button[:Num2Follow]: # Follow random amount
     try:
