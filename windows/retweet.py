@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service as ChromeService
 import pickle, time, yaml, random
+from selenium.webdriver.support import expected_conditions as EC
 
 with open('config.yaml') as configFile:
     config = yaml.safe_load(configFile)
@@ -39,20 +40,26 @@ time.sleep(1)
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 time.sleep(2)
 
-like_button = driver.find_elements(By.CSS_SELECTOR, "[data-testid='retweet']")
+retweet_button = driver.find_elements(By.CSS_SELECTOR, "[data-testid='retweet']")
 
 randSleep = random.randint(1,15)
 skipNum = random.choice(['on', 'off', 'on']) # if off skip tweet, if not retweet that tweet
-Num2Like = random.randint(RCN,RCX)
-
-for button in like_button[:3]:
+Num2RT = random.randint(RCN,RCX)
+time.sleep(10)
+for button in retweet_button[:Num2RT]:
     if skipNum == 'on':
         try:
             button.click()
+            time.sleep(10)
+            retweet_confirm = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "div[data-testid='retweetConfirm']"))
+            )
+            retweet_confirm.click()
+            time.sleep(10)
             time.sleep(randSleep)
         except:
             continue
     else:
         continue
 
-print('Retweet Success')
+print('Finished')
