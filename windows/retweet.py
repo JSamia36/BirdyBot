@@ -5,13 +5,15 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 import pickle, time, yaml, random
 
 with open('config.yaml') as configFile:
-    config = yaml.save_load(configFile)
+    config = yaml.safe_load(configFile)
 
 RetweetMin = config['retweet_timer']['retweet_min']
 RetweetMax = config['retweet_timer']['retweet_max']
 
 RCN = config['retweet_amount']['retweet_min']
 RCX = config['retweet_amount']['retweet_max']
+
+retweetTGT = config['theme']['querySearch']
 
 print("retweeting soon")
 time.sleep((random.randint(RetweetMin,RetweetMax)))
@@ -31,7 +33,7 @@ with open('cookies.pkl', 'rb') as file:
 driver.refresh()
 time.sleep(3)
 
-driver.get('https://twitter.com/search?q=crypto&src=typed_query') 
+driver.get(f'https://twitter.com/search?q={retweetTGT}&src=typed_query') 
 time.sleep(1)
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
