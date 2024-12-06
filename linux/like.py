@@ -1,15 +1,20 @@
-likfrom selenium import webdriver
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver import Keys
-from selenium.webdriver import ActionChains
-import pickle, time, os, random
+import pickle, time, yaml, random
+
+with open('config.yaml') as configFile:
+    config = yaml.save_load(configFile)
+
+LikeMin = config['like_timer']['like_min']
+LikeMax = config['like_timer']['like_max']
+
+LCN = config['like_amount']['like_min']
+LCX = config['like_amount']['like_max']
 
 print("going to send some likes after this nap")
-time.sleep((random.randint(2100,2820)))
+time.sleep((random.randint(LikeMin,LikeMax)))
 print("nap finished, sending those likes now")
 driver_path = 'chromedriver'  
 service = ChromeService(executable_path=driver_path)
@@ -36,9 +41,9 @@ like_button = driver.find_elements(By.CSS_SELECTOR, "[data-testid='like']")
 
 randSleep = random.randint(2,15)
 skipNum = random.choice(['on', 'off', 'on']) # if off skip tweet, if not like that tweet
-Num2Like = random.randint(1,7)
+Num2Like = random.randint(LCN,LCX)
 
-for button in like_button[:5]:
+for button in like_button[:Num2Like]: 
     if skipNum == 'on':
         try:
             button.click()
