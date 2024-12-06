@@ -7,7 +7,7 @@ Once downloaded, make sure to start with installing the neccessary files:
 pip install -r requirements.txt
 ```
 
-Now add what you'd like the account to tweet in 'file.txt'. This supports emojis and images, please see below on how to add images to the tweets. Modify the config file (config.yaml) to include your username + password for the account. You can also change the amounts of different things here if you'd like, otherwise just leave the other values as is. Once everything is downloaded and modified you can simply run 
+Now add what you'd like the account to tweet in 'file.txt'. This supports emojis and images, please see below on how to add images to the tweets. Modify the config file (config.yaml) to include your username + password for the account. You can also change the amounts of different things here if you'd like, otherwise just leave the other values as is. Make sure to move config.yaml, and file.txt into the same folder as main.py. Once everything is downloaded and modified you can simply run 
 ``` 
 python3 main.py
 ```
@@ -15,7 +15,7 @@ python3 main.py
 **Chomedriver is required.** This has to be placed in the same folder or you have to modify the path. That can be downloaded at https://googlechromelabs.github.io/chrome-for-testing/#stable
 
 ### Linux
-If you are on linux, please make sure you use that version for tweet instead. The main file version uses Win32Clipboard which linux does't support.
+If you are on linux, please make sure you use that version for tweet instead. The main file version uses Win32Clipboard which linux does't support. Please keep in mind this might be slower to get updates. There is almost no difference in each file except tweet.py. You can copy from the windows folder and remove the '.exe' for the driver path.
 
 ## Image Support is now Added!
 To add an image to your tweet, add the filepath in file.txt between '<' & '>'
