@@ -6,7 +6,7 @@ theme:
   accountFollow: cryptocom # Change to username you want to follow the followers of. DO NOT INCLUDE @
   querySearch: crypto # For Liking & Retweeting
 
-# These values are in minutes
+# These values are in seconds
 follow_timer:
   follow_min: 720
   follow_max: 1440
