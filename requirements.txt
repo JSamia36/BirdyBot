@@ -3,3 +3,4 @@ pickle5
 datetime
 schedule
 pyperclip
+pyyaml
