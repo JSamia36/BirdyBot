@@ -2,6 +2,10 @@ login:
   username: john-doe
   password: SuperSecretPassword123
 
+theme:
+  accountFollow: cryptocom # Change to username you want to follow the followers of. DO NOT INCLUDE @
+  querySearch: crypto # For Liking & Retweeting
+
 # These values are in minutes
 follow_timer:
   follow_min: 720
