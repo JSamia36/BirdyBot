@@ -5,13 +5,15 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 import pickle, time, yaml, random
 
 with open('config.yaml') as configFile:
-    config = yaml.save_load(configFile)
+    config = yaml.safe_load(configFile)
 
 LikeMin = config['like_timer']['like_min']
 LikeMax = config['like_timer']['like_max']
 
 LCN = config['like_amount']['like_min']
 LCX = config['like_amount']['like_max']
+
+likeTGT = config['theme']['querySearch']
 
 print("going to send some likes after this nap")
 time.sleep((random.randint(LikeMin,LikeMax)))
@@ -31,7 +33,7 @@ with open('cookies.pkl', 'rb') as file:
 driver.refresh()
 time.sleep(3)
 
-driver.get('https://twitter.com/search?q=crypto&src=typed_query&f=live') # CHANGE CRYPTO TO SEARCH YOU WANT
+driver.get(f'https://twitter.com/search?q={likeTGT}&src=typed_query&f=live') # CHANGE CRYPTO TO SEARCH YOU WANT
 time.sleep(1)
 
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
