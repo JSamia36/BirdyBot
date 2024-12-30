@@ -15,7 +15,7 @@ python3 main.py
 **Chomedriver is required.** This has to be placed in the same folder or you have to modify the path. That can be downloaded at https://googlechromelabs.github.io/chrome-for-testing/#stable
 
 ### Linux
-If you are on linux, please make sure you use that version for tweet instead. The main file version uses Win32Clipboard which linux does't support. Please keep in mind this might be slower to get updates. There is almost no difference in each file except tweet.py. You can copy from the windows folder and remove the '.exe' for the driver path.
+If you are on linux, please make sure you use that version for tweet instead. The main file version uses Win32Clipboard which linux does't support. Please keep in mind this might be slower to get updates. There is almost no difference in each file except tweet.py. You can copy from the windows folder and remove the '.exe' for the driver path. Images currently do not work. They originally did but somewhere along the line I broke it so slowly working on pushing out a fix, for the meantime it still should work perfectly on windows.
 
 ## Image Support is now Added!
 To add an image to your tweet, add the filepath in file.txt between '<' & '>'
