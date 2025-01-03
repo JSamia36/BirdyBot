@@ -6,9 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Keys
 import pickle, time, random, pyperclip, re
 from selenium.webdriver import ActionChains
-from io import BytesIO
-from PIL import Image
-from gi.repository import Gtk, GdkPixbuf
+import subprocess
 
 print("Tweeting will have to wait until after this nap")
 print("Rise and shine, tweeting time")
@@ -52,30 +50,14 @@ tBox = driver.find_element(By.CSS_SELECTOR, tweet_box)
 tBox.click()
 
 def copy_image(image_path):
-    image = Image.open(image_path)
-    output = BytesIO()
-    image.save(output, "PNG")
-    image_data = output.getvalue()
-    output.close
-
-    clipboard = Gtk.Clipboard.get(GdkPixbuf.get_default_display().get_default_screen())
-
-    loader = GdkPixbuf.PixbufLoader.new_with_type("png")
-    loader.write(image_data)
-    loader.close()
-
-    clipboard.set_image(pixbuf)
-    clipboard.store()
+    subprocess.run(["xclip", "-selection", "clipboard", "-t", "image/png", "-i", image_path])
 
 if '<' and '>' in chosen_lines:
     remSym = re.search('<(.*)>', chosen_lines)
     imagePath = (remSym.group(1))
-    s = chosen_lines
-    twt = re.sub('<.*?>', '', s)
-
-    image = Image.open(imagePath)
-
-    copy_image(image)
+    
+    twt = re.sub('<.*?>', '', chosen_lines)
+    copy_image(image_path)
 
     act = ActionChains(driver)
     act.key_down(Keys.CONTROL).send_keys("v").key_up(Keys.CONTROL).perform()
