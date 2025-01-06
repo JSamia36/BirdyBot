@@ -44,3 +44,5 @@ direct_message_link = wait.until(
 )
 
 pickle.dump(driver.get_cookies(), open("cookies.pkl", "wb"))
+
+driver.quit()
