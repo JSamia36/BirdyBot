@@ -55,4 +55,5 @@ for button in like_button[:Num2Like]:
     else:
         continue
 
+driver.quit()
 print('Sent the likes :)')
