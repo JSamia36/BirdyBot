@@ -52,5 +52,6 @@ for button in like_button[:3]:
             continue
     else:
         continue
-
+        
+driver.quit()
 print('Retweet Success')
