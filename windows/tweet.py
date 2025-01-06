@@ -91,5 +91,5 @@ postButton = wait.until(
  )
 postButton.click()
 
+driver.quit()
 print("Tweeting went well!")
-time.sleep(20)
