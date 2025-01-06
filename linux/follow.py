@@ -51,4 +51,5 @@ for button in follow_button[:Num2Follow]: # Follow random amount
         continue
     continue
 
+driver.quit()
 print("Followed some new friends")
