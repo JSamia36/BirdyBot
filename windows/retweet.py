@@ -62,4 +62,5 @@ for button in retweet_button[:Num2RT]:
     else:
         continue
 
+driver.quit()
 print('Finished')
