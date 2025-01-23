@@ -23,6 +23,9 @@ To add an image to your tweet, add the filepath in file.txt between '<' & '>'
 For example, 
 > This is a tweet <image.png>
 
+## Added unfollowing!
+I'll update the main file to include this in the schedule soon. Some of the other code will have to b updated to make sure we don't unfollow somebody we followed within the same day. 
+
 ## Modifying
 It is open source so you can make any modifications to the timing and amount of stuff done. The schedule is in main.py but the delays should be at the start of each program. If you wish to run individual they should be setup to support that as well, meaning you can just run the tweet or retweet features. Make sure to also modify the files to traget the specific searches and accounts you want.
 
